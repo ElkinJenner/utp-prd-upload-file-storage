@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player with Playlist</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Video Playlist</h1>
+        <div class="video-player">
+            <video id="videoPlayer" controls autoplay>
+                <source src="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/634e57eb-7363-4f63-a0d7-897c8923ef83/1_%20Introducci%C3%B3n%20De%20la%20idea%20al%20desarrollo_YQGUNC.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="playlist">
+            <ul id="videoList">
+                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/634e57eb-7363-4f63-a0d7-897c8923ef83/1_%20Introducci%C3%B3n%20De%20la%20idea%20al%20desarrollo_YQGUNC.mp4" class="active">1. Introducción De la idea al desarrollo</li>
+                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/f7e105c9-a40a-4973-a769-7183f7480f70/2_%20Estructura%20de%20carpetas%20en%20Unity_KIERTW.mp4">2. Estructura de carpetas en Unity</li>
+                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/d3ac5bd4-4bcc-4914-aa69-1a97e575ed34/3_%20Assets%2C%20Game%20Objects%20y%20Sprite%20Atlas_PBORJL.mp4">3. Assets, Game Objects y Sprite Atlas</li>
+                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/7f9f8e86-3ac3-4dd3-8cb7-efde2010f10a/4_%20Animaciones%20desde%20un%20sprite%20map_PCNZUN.mp4">4. Animaciones desde un sprite map</li>
+                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/c6b56a91-5db0-4365-93c3-a4033db34423/5_%20Animation%20Controller%20y%20Transiciones_RKHGXH.mp4">5. Animation Controller y Transiciones</li>
+                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/5754abae-8178-4812-925c-e1ac079d0da0/6_%20Plataformas%20y%20gravedad_FRKGFH.mp4">6. Animation Controller y Transiciones</li>
+                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/d6fecd4e-4dbe-447f-89fb-8608983628ff/7_%20Física%20en%20Unity_OJENHJ.mp4">7. Física en Unity</li>
+                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/243b1d87-2af8-4736-b720-6ef1db6512a1/8_%20El%20script%20de%20control_IYRUDC.mp4">8. El script de control</li>
+                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/6c5add1e-f466-4fac-9bcd-422264c12b14/9_%20Programando%20funciones%20en%20C%23%20y%20Unity_%20Jump_PCRPVT.mp4">9. Programando funciones en C# y Unity_ Jump.mp4</li>
+                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/396d9446-ed2a-4ed5-8e62-4c6a43470977/10_%20Detectar%20el%20suelo%20con%20Raycast_MDJZLI.mp4">10. Detectar el suelo con Raycast</li>
+                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/882d7fe5-d08c-4593-8bb9-cdf47f32beb2/11_%20Herramientas%20de%20debugging%20visual_RIGUHS.mp4">11. Herramientas de debugging visual</li>
+                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/5729c517-a32b-46b1-8a03-6c05f5866121/12_Cambiar%20las%20animaciones%20según%20los%20estados_MUUDTA.mp4">12.Cambiar las animaciones según los estados</li>
+                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/796ab470-0cae-476c-9022-112a6a6ed77e/13_Reto%20Terminando%20nuestras%20animaciones_NSZUWC.mp4">13. Reto Terminando nuestras animaciones</li>
+                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/0d341cda-0dcd-4229-8177-8f16ecc7745e/14_%20Solución%20del%20reto_IHZWUG.mp4">14. Solución del reto</li>
+                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/b8504fbd-7463-4897-8880-3320c315dbcb/15_%20Hacer%20que%20el%20personaje%20camine_JZUQGE.mp4">15. Hacer que el personaje camine</li>
+                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/e1c912f7-16ef-452e-9202-8f923b000798/16_%20Cómo%20funciona%20el%20Game%20Manager_GZVJTC.mp4">16. Cómo funciona el Game Manager</li>
+                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/56616dee-5354-4ffb-aa12-005739d41b8d/17_%20El%20Singleton_BIYQJR.mp4">17. El Singleton</li>
+                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/b1f39050-3093-403c-a583-9e8622fd42b1/18_%20El%20modo%20de%20juego_TORTNP.mp4">18. El modo de juego</li>
+                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/b6d6f19d-fad6-460c-8053-0ccf79b7685d/19_%20Input%20manager%20y%20juegos%20multiplataforma_GELYOC.mp4">19. Input manager y juegos multiplataforma</li>
+                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/6e8a0b93-9acf-4d71-b9dc-ed62d4ba639d/20_%20capture_WJAVWV.mp4">20. capture</li>
+                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/fd134039-8322-4249-aad9-898f7fc7500a/21_%20La%20zona%20de%20muerte_GICYLI.mp4">21. La zona de muerte</li>
+                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/c0effcc7-b92c-4417-b50e-a31408d6f336/22_%20Reiniciar%20la%20partida_QPRGKN.mp4">22. Reiniciar la partida</li>
+                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/c4c1a4c9-f528-4113-84a6-ef6301a7d23e/23_%20Corrigiendo%20los%20bugs%20al%20reiniciar%20nuestro%20juego_VKXPHS.mp4">23. Corrigiendo los bugs al reiniciar nuestro juego</li>
+                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/364a2875-ca5e-4c93-866d-0c2ef50a038f/24_%20El%20dise%C3%B1o%20de%20niveles%20a%20mano_GXBGCX.mp4">24. El diseño de niveles a mano</li>
+                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/214542fc-0484-43f6-9778-6eaca392a8ed/25_%20Configurando%20nuestros%20assets%20para%20el%20dise%C3%B1o%20procedural_VSQLUN.mp4">25. Configurando nuestros assets para el diseño procedural</li>
+                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/59ad87ff-bd91-451a-a497-819d72e5e5e0/26_%20Generaci%C3%B3n%20procedural%20de%20niveles_PYWZET.mp4">26. Generación procedural de niveles</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
