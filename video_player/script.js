@@ -1,46 +1,58 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const videoPlayer = document.getElementById('videoPlayer');
-    const videoList = document.getElementById('videoList');
-    const videos = videoList.getElementsByTagName('li');
-    let currentIndex = 0; // Para llevar el índice del video actual
+const videoPlayer = document.getElementById('videoPlayer');
+const videoTitle = document.querySelector('.video-title');
+const videoListItems = document.querySelectorAll('#videoList li');
+let currentVideoIndex = 0;  // Para controlar el índice del video actual
 
-    // Función para cargar y reproducir un video
-    function playVideo(index) {
-        if (index < videos.length) {
-            // Remover la clase 'active' de cualquier video previamente activo
-            for (let j = 0; j < videos.length; j++) {
-                videos[j].classList.remove('active');
-            }
+// Función para cambiar el video y actualizar el título
+function playVideo(videoUrl, videoName) {
+    videoPlayer.src = videoUrl;
+    videoTitle.textContent = videoName;
+    videoPlayer.play();  // Reproduce automáticamente el video
+}
 
-            // Agregar la clase 'active' al video actual
-            videos[index].classList.add('active');
+// Función para reproducir el siguiente video en la lista
+function playNextVideo() {
+    currentVideoIndex = (currentVideoIndex + 1) % videoListItems.length;  // Cicla a través de la lista
+    const nextVideoItem = videoListItems[currentVideoIndex];
+    const videoUrl = nextVideoItem.getAttribute('data-video');
+    const videoName = nextVideoItem.textContent;
 
-            // Cambiar el video source y reproducir
-            const videoSrc = videos[index].getAttribute('data-video');
-            videoPlayer.src = videoSrc;
-            videoPlayer.play();
-        }
-    }
+    // Remover clase 'active' de todos los items
+    videoListItems.forEach(i => i.classList.remove('active'));
+    // Añadir clase 'active' al siguiente elemento
+    nextVideoItem.classList.add('active');
+    playVideo(videoUrl, videoName);
+}
 
-    // Reproducir el primer video por defecto al cargar la página
-    playVideo(currentIndex);
-
-    // Cuando un video termina, pasar al siguiente video
-    videoPlayer.addEventListener('ended', function () {
-        currentIndex++;
-        if (currentIndex < videos.length) {
-            playVideo(currentIndex);
-        } else {
-            currentIndex = 0; // Si es el último video, reiniciar la lista
-            playVideo(currentIndex);
-        }
+// Añadir un evento de click a cada elemento de la lista
+videoListItems.forEach((item, index) => {
+    item.addEventListener('click', function () {
+        // Actualizar el índice del video actual
+        currentVideoIndex = index;
+        // Remover clase 'active' de todos los items
+        videoListItems.forEach(i => i.classList.remove('active'));
+        // Añadir clase 'active' al elemento seleccionado
+        this.classList.add('active');
+        // Reproducir el video correspondiente
+        const videoUrl = this.getAttribute('data-video');
+        const videoName = this.textContent;
+        playVideo(videoUrl, videoName);
     });
+});
 
-    // Reproducir un video al hacer clic en la lista
-    for (let i = 0; i < videos.length; i++) {
-        videos[i].addEventListener('click', function () {
-            currentIndex = i; // Actualiza el índice al video seleccionado
-            playVideo(currentIndex);
-        });
-    }
+// Detectar cuando un video termina para reproducir el siguiente automáticamente
+videoPlayer.addEventListener('ended', playNextVideo);
+
+// Reproducir el primer video automáticamente al cargar la página
+window.addEventListener('load', function () {
+    const firstVideoItem = videoListItems[0];
+    const videoUrl = firstVideoItem.getAttribute('data-video');
+    const videoName = firstVideoItem.textContent;
+    firstVideoItem.classList.add('active');
+    playVideo(videoUrl, videoName);
+});
+
+// Deshabilitar el clic derecho en el video
+videoPlayer.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
 });

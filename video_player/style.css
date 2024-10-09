@@ -1,56 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+/* General body styling */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    font-family: "Rubik", sans-serif;
+    background-color: #f5f5f7;
+    color: #333;
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 20px;
 }
 
+/* Container for the player and playlist */
 .container {
-    max-width: 800px;
+    max-width: 1400px;
+    width: 100%;
     margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
 }
 
-h1 {
+/* Player section */
+.video-player {
+    flex: 2;
+    background-color: #000;
+    position: relative;
+}
+
+/* Video title styling */
+.video-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 15px;
+    color: white;
+    font-size: 19px;
+    font-weight: bold;
+    z-index: 10;
     text-align: center;
 }
 
-.video-player {
-    margin-bottom: 20px;
-}
-
+/* The video element takes the entire width of the player */
 video {
     width: 100%;
-    height: auto;
-    border: 2px solid #000;
+    height: 100%;
+    border-radius: 0;
 }
 
+/* Playlist section */
 .playlist {
-    background-color: #fff;
-    padding: 10px;
-    border: 2px solid #000;
-    max-height: 300px;
-    /* Limita la altura máxima del contenedor de la lista */
+    flex: 1;
+    padding: 20px;
+    background-color: #f8f9fb;
+    border-left: 1px solid #e0e0e0;
     overflow-y: auto;
-    /* Activa el scroll vertical si se excede la altura */
 }
 
+/* The title of the playlist */
+h1 {
+    font-size: 28px;
+    color: #1a202c;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* List styling */
 .playlist ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
+/* Video item styles */
 .playlist li {
-    padding: 10px;
-    margin: 5px 0;
+    background-color: #fff;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 8px;
     cursor: pointer;
-    background-color: #ddd;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .playlist li:hover {
-    background-color: #bbb;
+    background-color: #e4f0f5;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
+/* Active video highlighting */
 .playlist li.active {
-    background-color: #aaa;
+    background-color: #dbeafe;
+    border-left: 5px solid #3b82f6;
+}
+
+/* Scroll behavior for the playlist with rounded scrollbars */
+.playlist {
+    max-height: 600px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+/* Scroll styles */
+.playlist::-webkit-scrollbar {
+    width: 12px;
+}
+
+.playlist::-webkit-scrollbar-track {
+    background: #f8f9fb;
+    border-radius: 10px;
+}
+
+.playlist::-webkit-scrollbar-thumb {
+    background-color: #c0c4cc;
+    border-radius: 10px;
+    border: 2px solid #f8f9fb;
+}
+
+.playlist::-webkit-scrollbar-thumb:hover {
+    background-color: #a0a4ac;
+}
+
+.playlist {
+    scrollbar-width: thin;
+    scrollbar-color: #c0c4cc #f8f9fb;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .video-player,
+    .playlist {
+        width: 100%;
+        flex: none;
+    }
+
+    .playlist {
+        border-left: none;
+        border-top: 1px solid #e0e0e0;
+    }
 }
