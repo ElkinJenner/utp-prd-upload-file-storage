@@ -56,3 +56,8 @@ window.addEventListener('load', function () {
 videoPlayer.addEventListener('contextmenu', function (e) {
     e.preventDefault();
 });
+
+// Deshabilitar el clic derecho en todo el sitio
+document.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+});

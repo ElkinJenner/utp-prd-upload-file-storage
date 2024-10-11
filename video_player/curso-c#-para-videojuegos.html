@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Player with Playlist</title>
+    <title>Curso de C# para Videojuegos</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="shortcut icon" href="../favicon.png">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     </head>
 
 </head>
@@ -14,18 +16,21 @@
     <div class="container">
         <div class="video-player">
             <div class="video-title">1. Introducción De la idea al desarrollo</div>
-            <video id="videoPlayer" controls autoplay controlsList="nodownload" disablePictureInPicture>
+            <video id="videoPlayer" controls autoplay controlsList="nodownload" disablePictureInPicture
+              poster="https://static.platzi.com/media/courses/og-c-videojuegos.png">
                 <source
                     src="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/634e57eb-7363-4f63-a0d7-897c8923ef83/1_%20Introducci%C3%B3n%20De%20la%20idea%20al%20desarrollo_YQGUNC.mp4"
                     type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <!-- Custom Video Controls -->
-            <div class="controls">
-                <button id="playPauseBtn"><i class="fas fa-play"></i></button>
-                <input id="volumeControl" type="range" min="0" max="1" step="0.1">
-                <span id="currentTime">00:00</span> / <span id="duration">00:00</span>
-            </div>
+        <!-- Custom Video Controls -->
+        <div class="controls">
+            <button id="playPauseBtn"><i class="fas fa-play"></i></button> <!-- Icono de play/pause -->
+            <input id="volumeControl" type="range" min="0" max="1" step="0.1">
+            <span id="currentTime">00:00</span> / <span id="duration">00:00</span>
+            <button id="volumeBtn"><i class="fas fa-volume-up"></i></button> <!-- Icono de volumen -->
+            <button id="nextBtn"><i class="fas fa-forward"></i></button> <!-- Icono de siguiente -->
+        </div>
         </div>
         <div class="playlist">
             <ul id="videoList">
