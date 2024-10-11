@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
 /* General body styling */
 body {
     font-family: "Rubik", sans-serif;
@@ -9,6 +10,30 @@ body {
     justify-content: center;
     align-items: flex-start;
     padding-top: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Modo oscuro */
+body.dark-mode {
+    background-color: #0c0606;
+    color: #f5f5f7;
+}
+
+/* Contenedor del modo oscuro/claro */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+    z-index: 1000;
+}
+
+body.dark-mode .theme-toggle {
+    color: #f5f5f7;
 }
 
 /* Container for the player and playlist */
@@ -22,6 +47,11 @@ body {
     overflow: hidden;
     display: flex;
     flex-direction: row;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode .container {
+    background-color: #2a2a2a;
 }
 
 /* Player section */
@@ -45,6 +75,10 @@ body {
     text-align: center;
 }
 
+body.dark-mode .video-title {
+    color: #f5f5f7;
+}
+
 /* The video element takes the entire width of the player */
 video {
     width: 100%;
@@ -59,6 +93,12 @@ video {
     background-color: #f8f9fb;
     border-left: 1px solid #e0e0e0;
     overflow-y: auto;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode .playlist {
+    background-color: #2a2a2a;
+    border-left: 1px solid #3e3e3e;
 }
 
 /* The title of the playlist */
@@ -67,6 +107,10 @@ h1 {
     color: #1a202c;
     margin-bottom: 20px;
     text-align: center;
+}
+
+body.dark-mode h1 {
+    color: #f5f5f7;
 }
 
 /* List styling */
@@ -89,15 +133,29 @@ h1 {
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+body.dark-mode .playlist li {
+    background-color: #3e3e3e;
+    color: #f5f5f7;
+}
+
 .playlist li:hover {
     background-color: #e4f0f5;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .playlist li:hover {
+    background-color: #4a4a4a;
 }
 
 /* Active video highlighting */
 .playlist li.active {
     background-color: #dbeafe;
     border-left: 5px solid #3b82f6;
+}
+
+body.dark-mode .playlist li.active {
+    background-color: #4a4a4a;
+    border-left: 5px solid #8ab4f8;
 }
 
 /* Scroll behavior for the playlist with rounded scrollbars */
@@ -107,7 +165,6 @@ h1 {
     scroll-behavior: smooth;
 }
 
-/* Scroll styles */
 .playlist::-webkit-scrollbar {
     width: 12px;
 }
@@ -117,14 +174,27 @@ h1 {
     border-radius: 10px;
 }
 
+body.dark-mode .playlist::-webkit-scrollbar-track {
+    background-color: #2a2a2a;
+}
+
 .playlist::-webkit-scrollbar-thumb {
     background-color: #c0c4cc;
     border-radius: 10px;
     border: 2px solid #f8f9fb;
 }
 
+body.dark-mode .playlist::-webkit-scrollbar-thumb {
+    background-color: #505050;
+    border: 2px solid #2a2a2a;
+}
+
 .playlist::-webkit-scrollbar-thumb:hover {
     background-color: #a0a4ac;
+}
+
+body.dark-mode .playlist::-webkit-scrollbar-thumb:hover {
+    background-color: #7a7a7a;
 }
 
 .playlist {
@@ -132,6 +202,11 @@ h1 {
     scrollbar-color: #c0c4cc #f8f9fb;
 }
 
+body.dark-mode .playlist {
+    scrollbar-color: #505050 #2a2a2a;
+}
+
+/* Media queries */
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
@@ -146,5 +221,9 @@ h1 {
     .playlist {
         border-left: none;
         border-top: 1px solid #e0e0e0;
+    }
+
+    body.dark-mode .playlist {
+        border-top: 1px solid #3e3e3e;
     }
 }

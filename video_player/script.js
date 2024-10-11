@@ -61,3 +61,19 @@ videoPlayer.addEventListener('contextmenu', function (e) {
 document.addEventListener('contextmenu', function (e) {
     e.preventDefault();
 });
+
+// Funcionalidad de modo oscuro/claro
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = document.getElementById('themeIcon');
+
+// Cambiar tema al hacer clic en el botón
+themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    if (document.body.classList.contains('dark-mode')) {
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+    } else {
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+    }
+});
