@@ -35,12 +35,13 @@ body.dark-mode {
 body.dark-mode .theme-toggle {
     color: #f5f5f7;
 }
+.container{
+    width: 98%;
+    margin: 0 auto;
+}
 
 /* Container for the player and playlist */
-.container {
-    max-width: 1400px;
-    width: 100%;
-    margin: 0 auto;
+.container_curso{
     background-color: #fff;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
@@ -50,29 +51,22 @@ body.dark-mode .theme-toggle {
     transition: background-color 0.3s ease;
 }
 
-body.dark-mode .container {
+body.dark-mode .container_curso {
     background-color: #2a2a2a;
 }
 
 /* Player section */
 .video-player {
     flex: 2;
-    background-color: #000;
     position: relative;
 }
 
 /* Video title styling */
 .video-title {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px 15px;
-    color: white;
-    font-size: 19px;
+    font-size: 21px;
     font-weight: bold;
     z-index: 10;
-    text-align: center;
+    padding-bottom: 1rem;
 }
 
 body.dark-mode .video-title {
@@ -102,13 +96,20 @@ body.dark-mode .playlist {
 }
 
 /* The title of the playlist */
+.title{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
 h1 {
-    font-size: 28px;
+    font-size: 32px;
     color: #1a202c;
     margin-bottom: 20px;
     text-align: center;
 }
-
+.img40{
+    width: 40px;
+}
 body.dark-mode h1 {
     color: #f5f5f7;
 }
@@ -160,7 +161,7 @@ body.dark-mode .playlist li.active {
 
 /* Scroll behavior for the playlist with rounded scrollbars */
 .playlist {
-    max-height: 600px;
+    max-height: 68vh;
     overflow-y: auto;
     scroll-behavior: smooth;
 }
