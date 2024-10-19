@@ -12,95 +12,104 @@
 
 </head>
 <body>
-    <h1>Fundamentos de Arquitectura de Software</h1>
-    <div class="container">
-        <div class="video-player">
-            <div class="video-title">1. Introducción De la idea al desarrollo</div>
-          
-
-            <video id="videoPlayer" controls autoplay controlsList="nodownload" disablePictureInPicture
-                poster="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/76036425-a848-4b62-8937-d91a8733c2d2/image_LZCGYA.png">
-                <source
-                    src="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/363f1d5c-16f8-4237-b5b7-407d7476238d/1_%20Introducci%C3%B3n%20al%20curso%20de%20Fundamentos%20de%20Arquitectura%20de%20Software_FCNLCM.mp4"
-                    type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        <!-- Custom Video Controls -->
-        <div class="controls">
-            <button id="playPauseBtn"><i class="fas fa-play"></i></button> <!-- Icono de play/pause -->
-            <input id="volumeControl" type="range" min="0" max="1" step="0.1">
-            <span id="currentTime">00:00</span> / <span id="duration">00:00</span>
-            <button id="volumeBtn"><i class="fas fa-volume-up"></i></button> <!-- Icono de volumen -->
-            <button id="nextBtn"><i class="fas fa-forward"></i></button> <!-- Icono de siguiente -->
+    <!-- Botón para alternar el modo oscuro/claro -->
+    <button id="themeToggle" class="theme-toggle">
+        <i id="themeIcon" class="fas fa-moon"></i> <!-- Icono que cambiará entre sol/luna -->
+    </button>
+    <section class="container">
+        <div class="title">
+            <img class="img40"
+                src="https://static.platzi.com/cdn-cgi/image/width=1024,quality=50,format=auto/media/achievements/1247-4f5b5d04-4b56-4e64-bec2-db8fe3c0aa18.png">
+            <h1> Fundamentos de Arquitectura de Software</h1>
         </div>
+        <div class="video-title">1. Fundamentos de Arquitectura de Software</div>
+        <div class="container_curso">
+            <div class="video-player">
+            
+                <video id="videoPlayer" controls autoplay controlsList="nodownload" disablePictureInPicture
+                    poster="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/76036425-a848-4b62-8937-d91a8733c2d2/image_LZCGYA.png">
+                    <source
+                        src="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/363f1d5c-16f8-4237-b5b7-407d7476238d/1_%20Introducci%C3%B3n%20al%20curso%20de%20Fundamentos%20de%20Arquitectura%20de%20Software_FCNLCM.mp4"
+                        type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            <!-- Custom Video Controls -->
+            <!-- <div class="controls">
+                <button id="playPauseBtn"><i class="fas fa-play"></i></button> 
+                <input id="volumeControl" type="range" min="0" max="1" step="0.1">
+                <span id="currentTime">00:00</span> / <span id="duration">00:00</span>
+                <button id="volumeBtn"><i class="fas fa-volume-up"></i></button>
+                <button id="nextBtn"><i class="fas fa-forward"></i></button>
+            </div>-->
+            </div>
+            <div class="playlist">
+                <ul id="videoList">
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/363f1d5c-16f8-4237-b5b7-407d7476238d/1_%20Introducci%C3%B3n%20al%20curso%20de%20Fundamentos%20de%20Arquitectura%20de%20Software_FCNLCM.mp4" class="active">1. Fundamentos de Arquitectura de Software</li>
+
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/363f1d5c-16f8-4237-b5b7-407d7476238d/1_%20Introducci%C3%B3n%20al%20curso%20de%20Fundamentos%20de%20Arquitectura%20de%20Software_FCNLCM.mp4">
+                        2. Etapas del proceso de desarrollo de software.</li>
+
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/d48263bd-6f8f-4ea6-90f9-e463663bfa43/3_%20Dificultades%20en%20el%20desarrollo%20de%20software_QSZVRF.mp4">3. Dificultades en el desarrollo de software</li>
+
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/d2754a86-8f6a-4535-9d64-3ad4287dc44a/4_%20Roles%20en%20metodolog%C3%ADas%20tradicionales%20y%20%C3%A1giles_WURREZ.mp4">4. Roles en metodologías tradicionales y ágiles</li>
+
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/8e565980-4e9c-4308-862f-ecd1e2fc37ea/5_%20%C2%BFQu%C3%A9%20es%20arquitectura%20de%20software_MPEJIC.mp4">
+                        5. ¿Qué es arquitectura de software</li>
+
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/ced494f7-b9cd-41b8-a604-29b496388b46/6_%20La%20importancia%20de%20la%20comunicaci%C3%B3n%20-%20Ley%20de%20Conway_MJMOAO.mp4">
+                    6. La importancia de la comunicación - Ley de Conway</li>  
+                    
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/b358e961-d518-47ac-ba03-6190d90448e5/7_%20Objetivos%20del%20arquitecto_CUHQGU.mp4">
+                        7. Objetivos del arquitecto</li>
+
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/489b86f3-37ea-44a3-861a-31b7ad6fbf6d/8_%20Arquitectura%20y%20metodolog%C3%ADas_LKODOF.mp4">
+                        8. Arquitectura y metodologías</li>
+
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/0421f728-4936-4dcd-97cd-cca925280265/9_%20Entender%20el%20problema_ZQLGOF.mp4">
+                        9. Entender el problema</li>
+            
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/8cae6e0a-56c8-4b60-95f3-1b6bbc607b58/10_%20Requerimientos_HMGQRP.mp4">
+                        10. Requerimientos</li>
+                    
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/857cd173-4287-4336-becf-39434c1f76b7/11_%20Riesgos_IOOBGA.mp4">
+                        11. Riesgos</li>
+                    
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/dc176622-8cdf-43d0-af38-d5e38f88614e/12_Restricciones_ZLECEF.mp4">
+                        12.Restricciones</li>
+                    
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/048c00a8-cca5-418c-a877-6abffe2f8df3/14_%20Arquitectura%2C%20panorama%20y%20definici%C3%B3n_JDSMME.mp4">
+                        14. Arquitectura, panorama y definición</li>
+                    
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/420253d4-5f06-4506-b640-07ca314a2c9c/15_%20Estilos%20Llamado%20y%20retorno_SIQZGC.mp4">
+                        15. Estilos Llamado y retorno</li>
+
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/75004a8a-232d-4ce4-8c0f-c244da4d59d6/16_%20Estilos%20Flujo%20de%20datos_CKRBRD.mp4">
+                        16. Estilos Flujo de datos</li>
+                    
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/dd0c0bbb-1b02-4a75-9775-c66d85e2fb09/17_%20Estilos%20Centradas%20en%20datos_CTWXIE.mp4">
+                        17. Estilos Centradas en datos</li>
+                    
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/d20cc5a3-d0fd-40e8-b868-8a228e8242ca/18_%20Estilos%20Componentes%20independientes_TOADTQ.mp4">
+                        18. Estilos Componentes independientes</li>
+
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/47b205ab-4bac-4f98-aebf-c0233d37c1a5/19_%20Comparando%20estilos_%20%C2%BFC%C3%B3mo%20elijo_SZWJGQ.mp4">
+                    19. Comparando estilos_ ¿Cómo elijo</li>
+
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/c516d2e7-8c23-4027-abc6-add6625c544e/21_%20Desarrollo%20del%20proyecto%20PlatziServicios%20Fase%20Startup_EHJBML.mp4">
+                    21. Desarrollo del proyecto PlatziServicios Fase Startup</li>
+
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/b9041282-d46c-41ec-9292-488ba1cfbf76/22_%20Desarrollo%20del%20proyecto%20PlatziServicios%20Fase%20Producto%20en%20crecimiento_DKHMLM.mp4">
+                    22. Desarrollo del proyecto PlatziServicios Fase Producto en crecimiento</li>
+
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/738047f8-bc89-4aba-b8dc-4c8d8c29c2ea/23_%20Desarrollo%20del%20proyecto%20PlatziServicios%20Fase%20Escala%20global_TFXSNP.mp4">
+                    23. Desarrollo del proyecto PlatziServicios Fase Escala global</li>
+
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/383cb6ab-62d2-439a-a2d8-1134db1fd8a5/24_%20Conclusiones%20del%20curso_IRQYHU.mp4">
+                    24. Conclusiones del curso</li>
+                </ul>
+            </div>
         </div>
-        <div class="playlist">
-            <ul id="videoList">
-                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/363f1d5c-16f8-4237-b5b7-407d7476238d/1_%20Introducci%C3%B3n%20al%20curso%20de%20Fundamentos%20de%20Arquitectura%20de%20Software_FCNLCM.mp4" class="active">1. Fundamentos de Arquitectura de Software</li>
-
-                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/363f1d5c-16f8-4237-b5b7-407d7476238d/1_%20Introducci%C3%B3n%20al%20curso%20de%20Fundamentos%20de%20Arquitectura%20de%20Software_FCNLCM.mp4">
-                    2. Etapas del proceso de desarrollo de software.</li>
-
-                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/d48263bd-6f8f-4ea6-90f9-e463663bfa43/3_%20Dificultades%20en%20el%20desarrollo%20de%20software_QSZVRF.mp4">3. Dificultades en el desarrollo de software</li>
-
-                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/d2754a86-8f6a-4535-9d64-3ad4287dc44a/4_%20Roles%20en%20metodolog%C3%ADas%20tradicionales%20y%20%C3%A1giles_WURREZ.mp4">4. Roles en metodologías tradicionales y ágiles</li>
-
-                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/8e565980-4e9c-4308-862f-ecd1e2fc37ea/5_%20%C2%BFQu%C3%A9%20es%20arquitectura%20de%20software_MPEJIC.mp4">
-                    5. ¿Qué es arquitectura de software</li>
-
-                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/ced494f7-b9cd-41b8-a604-29b496388b46/6_%20La%20importancia%20de%20la%20comunicaci%C3%B3n%20-%20Ley%20de%20Conway_MJMOAO.mp4">
-                6. La importancia de la comunicación - Ley de Conway</li>  
-                
-                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/b358e961-d518-47ac-ba03-6190d90448e5/7_%20Objetivos%20del%20arquitecto_CUHQGU.mp4">
-                    7. Objetivos del arquitecto</li>
-
-                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/489b86f3-37ea-44a3-861a-31b7ad6fbf6d/8_%20Arquitectura%20y%20metodolog%C3%ADas_LKODOF.mp4">
-                    8. Arquitectura y metodologías</li>
-
-                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/0421f728-4936-4dcd-97cd-cca925280265/9_%20Entender%20el%20problema_ZQLGOF.mp4">
-                    9. Entender el problema</li>
-        
-                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/8cae6e0a-56c8-4b60-95f3-1b6bbc607b58/10_%20Requerimientos_HMGQRP.mp4">
-                    10. Requerimientos</li>
-                
-                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/857cd173-4287-4336-becf-39434c1f76b7/11_%20Riesgos_IOOBGA.mp4">
-                    11. Riesgos</li>
-                
-                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/dc176622-8cdf-43d0-af38-d5e38f88614e/12_Restricciones_ZLECEF.mp4">
-                    12.Restricciones</li>
-                
-                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/048c00a8-cca5-418c-a877-6abffe2f8df3/14_%20Arquitectura%2C%20panorama%20y%20definici%C3%B3n_JDSMME.mp4">
-                    14. Arquitectura, panorama y definición</li>
-                
-                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/420253d4-5f06-4506-b640-07ca314a2c9c/15_%20Estilos%20Llamado%20y%20retorno_SIQZGC.mp4">
-                    15. Estilos Llamado y retorno</li>
-
-                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/75004a8a-232d-4ce4-8c0f-c244da4d59d6/16_%20Estilos%20Flujo%20de%20datos_CKRBRD.mp4">
-                    16. Estilos Flujo de datos</li>
-                
-                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/dd0c0bbb-1b02-4a75-9775-c66d85e2fb09/17_%20Estilos%20Centradas%20en%20datos_CTWXIE.mp4">
-                    17. Estilos Centradas en datos</li>
-                
-                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/d20cc5a3-d0fd-40e8-b868-8a228e8242ca/18_%20Estilos%20Componentes%20independientes_TOADTQ.mp4">
-                    18. Estilos Componentes independientes</li>
-
-                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/47b205ab-4bac-4f98-aebf-c0233d37c1a5/19_%20Comparando%20estilos_%20%C2%BFC%C3%B3mo%20elijo_SZWJGQ.mp4">
-                 19. Comparando estilos_ ¿Cómo elijo</li>
-
-                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/c516d2e7-8c23-4027-abc6-add6625c544e/21_%20Desarrollo%20del%20proyecto%20PlatziServicios%20Fase%20Startup_EHJBML.mp4">
-                21. Desarrollo del proyecto PlatziServicios Fase Startup</li>
-
-                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/b9041282-d46c-41ec-9292-488ba1cfbf76/22_%20Desarrollo%20del%20proyecto%20PlatziServicios%20Fase%20Producto%20en%20crecimiento_DKHMLM.mp4">
-                22. Desarrollo del proyecto PlatziServicios Fase Producto en crecimiento</li>
-
-                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/738047f8-bc89-4aba-b8dc-4c8d8c29c2ea/23_%20Desarrollo%20del%20proyecto%20PlatziServicios%20Fase%20Escala%20global_TFXSNP.mp4">
-                23. Desarrollo del proyecto PlatziServicios Fase Escala global</li>
-
-                <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/383cb6ab-62d2-439a-a2d8-1134db1fd8a5/24_%20Conclusiones%20del%20curso_IRQYHU.mp4">
-                24. Conclusiones del curso</li>
-            </ul>
-        </div>
-    </div>
+    </section>
 
     <script src="script.js"></script>
 </body>

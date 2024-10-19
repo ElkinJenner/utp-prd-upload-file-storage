@@ -209,7 +209,7 @@ body.dark-mode .playlist {
 
 /* Media queries */
 @media (max-width: 768px) {
-    .container {
+    .container_curso {
         flex-direction: column;
     }
 
