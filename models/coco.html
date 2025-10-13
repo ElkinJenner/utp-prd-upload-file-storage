@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería Interactiva Vertical - Coco</title>
+    <link rel="icon" href="https://play-lh.googleusercontent.com/nX_X7VLuovWewAE9iJysyQ2XtZlq55ijTulOLquOxN1K0Ihx93F4p8COzJuihWV2H5Y" />
+
+    <style>
+        /* ==================================== */
+        /* AJUSTES PARA PANTALLA COMPLETA 100%  */
+        /* ==================================== */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Evita barras de desplazamiento innecesarias */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1f1e1e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+        }
+        
+        /* Contenedor principal ahora usa flex para dividir el espacio: Visor + Slider */
+        .gallery-container {
+            width: 100%; /* Ancho de la galería */
+            max-height: 100vh;
+            margin: 0;
+            display: flex; /* Divide el espacio horizontalmente */
+            box-sizing: border-box;
+            position: relative;
+            border-radius: 8px;
+        }
+        
+        /* ==================================== */
+        /* VISOR PRINCIPAL (A LA IZQUIERDA)     */
+        /* ==================================== */
+        .main-viewer-container {
+            flex-grow: 1;
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px 0 0 8px;
+        }
+
+        /* Contenedor para la Imagen Principal */
+        .zoomable-content-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden; /* Esto es clave para que el zoom no se salga del visor */
+            transition: opacity 0.3s ease-in-out;
+        }
+        
+        /* La imagen dentro del wrapper */
+        .main-content {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            /* La imagen ahora es la que tiene la transición para el zoom */
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; 
+            transform-origin: 50% 50%; /* Punto de origen del zoom */
+            cursor: zoom-in; /* Cursor para indicar que se puede hacer zoom */
+        }
+
+        /* -------------------------------------- */
+        /* MODIFICACIÓN: Efecto de Zoom al hacer CLICK */
+        /* -------------------------------------- */
+        .main-content.zoomed {
+            transform: scale(1.5); /* Factor de zoom (1.5 = 150%) */
+            cursor: zoom-out; /* Cursor para indicar que se puede quitar el zoom */
+        }
+        
+        /* Clases para ocultar/mostrar */
+        .zoomable-content-wrapper.hidden {
+            opacity: 0;
+            visibility: hidden; /* Mejor que display: none para transiciones */
+        }
+        
+        /* ==================================== */
+        /* SLIDER DE MINIATURAS (A LA DERECHA)  */
+        /* ==================================== */
+        .slider-wrapper {
+            position: relative; 
+            width: 110px; 
+            display: flex;
+            flex-direction: column; 
+            border-radius: 0 8px 8px 0;
+            background-color: #2c2c2c;
+            overflow: hidden; 
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(100px); 
+        }
+
+        .gallery-container.hovered .slider-wrapper {
+            transform: translateX(0); 
+        }
+
+        .thumbnail-slider {
+            flex-grow: 1; 
+            display: flex;
+            flex-direction: column; 
+            gap: 10px; 
+            padding: 10px 0; 
+            overflow-y: scroll; 
+            align-items: center; 
+            height: calc(100% - 80px); 
+            box-sizing: border-box;
+            scrollbar-width: none; 
+        }
+
+        .thumbnail-slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .thumbnail-item {
+            flex-shrink: 0;
+            width: 90px;
+            height: 90px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            border-radius: 4px;
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+
+        .thumbnail-item:hover {
+            border-color: #ccc;
+        }
+
+        .thumbnail-item.active {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.8);
+        }
+
+        .thumbnail-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ==================================== */
+        /* BOTÓN NEXT PARA DESPLAZAMIENTO       */
+        /* ==================================== */
+        .scroll-button {
+            width: 100%;
+            height: 40px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s;
+            flex-shrink: 0; 
+        }
+
+        .scroll-button:hover {
+            background-color: #0056b3;
+        }
+        
+        .scroll-button:disabled {
+            background-color: #6c757d;
+            cursor: not-allowed;
+        }
+        
+        .scroll-button.prev {
+            order: -1; 
+        }
+
+        .thumbnail-slider-content {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 0 0 10px 0; 
+            align-items: center;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="gallery-container">
+        <div class="main-viewer-container" id="main-viewer-container">
+            <div id="wrapper-img-1" class="zoomable-content-wrapper">
+                <img id="main-img-1" class="main-content" src="https://files.catbox.moe/y5y4gw.jpg" alt="Imagen 1">
+            </div>
+            <div id="wrapper-img-2" class="zoomable-content-wrapper hidden">
+                <img id="main-img-2" class="main-content" src="https://files.catbox.moe/9s71mm.jpg" alt="Imagen 2">
+            </div>
+            <div id="wrapper-img-3" class="zoomable-content-wrapper hidden">
+                <img id="main-img-3" class="main-content" src="https://files.catbox.moe/pace6z.jpg" alt="Imagen 3">
+            </div>
+            <div id="wrapper-img-4" class="zoomable-content-wrapper hidden">
+                <img id="main-img-4" class="main-content" src="https://files.catbox.moe/3j55gn.jpg" alt="Imagen 4">
+            </div>
+            <div id="wrapper-img-5" class="zoomable-content-wrapper hidden">
+                <img id="main-img-5" class="main-content" src="https://files.catbox.moe/v6nurh.jpg" alt="Imagen 5">
+            </div>
+            <div id="wrapper-img-6" class="zoomable-content-wrapper hidden">
+                <img id="main-img-6" class="main-content" src="https://files.catbox.moe/fwuesw.jpg" alt="Imagen 6">
+            </div>
+            <div id="wrapper-img-7" class="zoomable-content-wrapper hidden">
+                <img id="main-img-7" class="main-content" src="https://files.catbox.moe/xtmypp.jpg" alt="Imagen 7">
+            </div>
+            <div id="wrapper-img-8" class="zoomable-content-wrapper hidden">
+                <img id="main-img-8" class="main-content" src="https://files.catbox.moe/gmfyiq.jpg" alt="Imagen 8">
+            </div>
+            <div id="wrapper-img-9" class="zoomable-content-wrapper hidden">
+                <img id="main-img-9" class="main-content" src="https://files.catbox.moe/maqmt4.jpg" alt="Imagen 9">
+            </div>
+            <div id="wrapper-img-10" class="zoomable-content-wrapper hidden">
+                <img id="main-img-10" class="main-content" src="https://files.catbox.moe/17bmf2.jpg" alt="Imagen 10">
+            </div>
+            <div id="wrapper-img-11" class="zoomable-content-wrapper hidden">
+                <img id="main-img-11" class="main-content" src="https://files.catbox.moe/lzc4px.jpg" alt="Imagen 11">
+            </div>
+            <div id="wrapper-img-12" class="zoomable-content-wrapper hidden">
+                <img id="main-img-12" class="main-content" src="https://files.catbox.moe/7ep1zd.jpg" alt="Imagen 12">
+            </div>
+            <div id="wrapper-img-13" class="zoomable-content-wrapper hidden">
+                <img id="main-img-13" class="main-content" src="https://files.catbox.moe/w5lmwf.jpg" alt="Imagen 13">
+            </div>
+        </div>
+
+        <div class="slider-wrapper">
+            <button class="scroll-button prev" id="prev-button" disabled>▲</button>
+            <div class="thumbnail-slider" id="thumbnail-slider">
+                <div class="thumbnail-item active" data-target="wrapper-img-1">
+                    <img class="thumbnail-img" src="https://files.catbox.moe/y5y4gw.jpg" alt="Miniatura 1">
+                </div>
+                <div class="thumbnail-item" data-target="wrapper-img-2">
+                    <img class="thumbnail-img" src="https://files.catbox.moe/9s71mm.jpg" alt="Miniatura 2">
+                </div>
+                <div class="thumbnail-item" data-target="wrapper-img-3">
+                    <img class="thumbnail-img" src="https://files.catbox.moe/pace6z.jpg" alt="Miniatura 3">
+                </div>
+                <div class="thumbnail-item" data-target="wrapper-img-4">
+                    <img class="thumbnail-img" src="https://files.catbox.moe/3j55gn.jpg" alt="Miniatura 4">
+                </div>
+                <div class="thumbnail-item" data-target="wrapper-img-5">
+                    <img class="thumbnail-img" src="https://files.catbox.moe/v6nurh.jpg" alt="Miniatura 5">
+                </div>
+                <div class="thumbnail-item" data-target="wrapper-img-6">
+                    <img class="thumbnail-img" src="https://files.catbox.moe/fwuesw.jpg" alt="Miniatura 6">
+                </div>
+                <div class="thumbnail-item" data-target="wrapper-img-7">
+                    <img class="thumbnail-img" src="https://files.catbox.moe/xtmypp.jpg" alt="Miniatura 7">
+                </div>
+                <div class="thumbnail-item" data-target="wrapper-img-8">
+                    <img class="thumbnail-img" src="https://files.catbox.moe/gmfyiq.jpg" alt="Miniatura 8">
+                </div>
+                <div class="thumbnail-item" data-target="wrapper-img-9">
+                    <img class="thumbnail-img" src="https://files.catbox.moe/maqmt4.jpg" alt="Miniatura 9">
+                </div>
+                <div class="thumbnail-item" data-target="wrapper-img-10">
+                    <img class="thumbnail-img" src="https://files.catbox.moe/17bmf2.jpg" alt="Miniatura 10">
+                </div>
+                <div class="thumbnail-item" data-target="wrapper-img-11">
+                    <img class="thumbnail-img" src="https://files.catbox.moe/lzc4px.jpg" alt="Miniatura 11">
+                </div>
+                <div class="thumbnail-item" data-target="wrapper-img-12">
+                    <img class="thumbnail-img" src="https://files.catbox.moe/7ep1zd.jpg" alt="Miniatura 12">
+                </div>
+                <div class="thumbnail-item" data-target="wrapper-img-13">
+                    <img class="thumbnail-img" src="https://files.catbox.moe/w5lmwf.jpg" alt="Miniatura 13">
+                </div>
+            </div>
+            <button class="scroll-button next" id="next-button">▼</button>
+        </div>
+    </div>
+
+    <script>
+        // ====================================
+        //             JAVASCRIPT JS
+        // ====================================
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const galleryContainer = document.querySelector('.gallery-container');
+            const thumbnailItems = document.querySelectorAll('.thumbnail-item');
+            const mainContentWrappers = document.querySelectorAll('.zoomable-content-wrapper'); 
+            const mainContents = document.querySelectorAll('.main-content'); // Ahora se usa para el evento click
+            const thumbnailSlider = document.getElementById('thumbnail-slider');
+            const prevButton = document.getElementById('prev-button');
+            const nextButton = document.getElementById('next-button');
+
+            // Define cuánto se desplazará.
+            const SCROLL_AMOUNT = thumbnailSlider.clientHeight * 0.8; 
+            
+            // Función para mostrar el contenido principal
+            function showMainContent(targetId) {
+                mainContentWrappers.forEach(wrapper => {
+                    wrapper.classList.add('hidden');
+                    // Asegúrate de que todas las imágenes pierdan el zoom al ser ocultadas
+                    wrapper.querySelector('.main-content').classList.remove('zoomed'); 
+                });
+                const targetWrapper = document.getElementById(targetId);
+                if (targetWrapper) {
+                    targetWrapper.classList.remove('hidden');
+                }
+            }
+            
+            // Función para manejar el clic en la miniatura
+            function handleThumbnailClick(event) {
+                const clickedThumbnail = event.currentTarget;
+                const targetId = clickedThumbnail.getAttribute('data-target'); 
+
+                thumbnailItems.forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                clickedThumbnail.classList.add('active');
+                showMainContent(targetId);
+                
+                clickedThumbnail.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+
+            // ====================================
+            // NUEVA LÓGICA: Alternar ZOOM al hacer click
+            // ====================================
+            mainContents.forEach(img => {
+                img.addEventListener('click', (e) => {
+                    e.currentTarget.classList.toggle('zoomed');
+                });
+            });
+
+            // ====================================
+            // Lógica para el botón de desplazamiento
+            // ====================================
+            
+            function updateScrollButtons() {
+                const currentScroll = thumbnailSlider.scrollTop;
+                const maxScroll = thumbnailSlider.scrollHeight - thumbnailSlider.clientHeight;
+
+                prevButton.disabled = currentScroll <= 1;
+                nextButton.disabled = currentScroll >= maxScroll - 1;
+            }
+
+            function scrollSlider(direction) {
+                let newScrollTop;
+
+                if (direction === 'next') {
+                    newScrollTop = thumbnailSlider.scrollTop + SCROLL_AMOUNT;
+                } else if (direction === 'prev') {
+                    newScrollTop = thumbnailSlider.scrollTop - SCROLL_AMOUNT;
+                }
+
+                thumbnailSlider.scrollTo({
+                    top: newScrollTop,
+                    behavior: 'smooth'
+                });
+                
+                setTimeout(updateScrollButtons, 350); 
+            }
+
+            nextButton.addEventListener('click', () => scrollSlider('next'));
+            prevButton.addEventListener('click', () => scrollSlider('prev'));
+            thumbnailSlider.addEventListener('scroll', updateScrollButtons);
+
+            // Asignar el evento de clic a cada miniatura
+            thumbnailItems.forEach(item => {
+                item.addEventListener('click', handleThumbnailClick);
+            });
+            
+            // ====================================
+            // Lógica para mostrar/ocultar con HOVER (Sin Cambios)
+            // ====================================
+            
+            galleryContainer.addEventListener('mouseenter', () => {
+                galleryContainer.classList.add('hovered');
+            });
+
+            galleryContainer.addEventListener('mouseleave', () => {
+                galleryContainer.classList.remove('hovered');
+            });
+
+            // Inicializar el estado de los botones al cargar la página
+            updateScrollButtons();
+        });
+    </script>
+</body>
+</html>
