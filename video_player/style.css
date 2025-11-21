@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Days+One&display=swap');
 
 /* General body styling */
 body {
@@ -11,6 +12,37 @@ body {
     align-items: flex-start;
     padding-top: 20px;
     transition: background-color 0.3s ease, color 0.3s ease;
+}
+a{
+    text-decoration: none;
+}
+/* Index */
+.logo{
+    display: flex;
+    gap: .5rem;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    font-family: "Days One", sans-serif;
+}
+.isotipo{
+    height: 50px;
+}
+.contender-cursos{
+  display: flex;
+  text-align: center;
+  gap: 1.4rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+.contender-cursos img {
+  border-radius: .5rem;
+  width: 360px;
+  height: 200px;
+  object-fit: cover;
+}
+.contender-cursos a:hover{
+            opacity: .6;
 }
 
 /* Modo oscuro */
@@ -34,6 +66,9 @@ body.dark-mode {
 
 body.dark-mode .theme-toggle {
     color: #f5f5f7;
+}
+.container_min{
+    max-width: 1200px;
 }
 .container{
     width: 98%;

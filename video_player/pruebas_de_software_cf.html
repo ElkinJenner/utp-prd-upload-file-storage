@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de Introducción a las Pruebas de Software (QA)</title>
+    <link rel="stylesheet" href="https://utp-prd-upload-file-storage.vercel.app/video_player/style.css">
+    <link rel="shortcut icon" href="https://utp-prd-upload-file-storage.vercel.app/favicon.png">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </head>
+
+</head>
+<body>
+    <!-- Botón para alternar el modo oscuro/claro -->
+    <button id="themeToggle" class="theme-toggle">
+        <i id="themeIcon" class="fas fa-moon"></i> <!-- Icono que cambiará entre sol/luna -->
+    </button>
+    <section class="container">
+        <div class="title">
+            <h1> Curso de Introducción a las Pruebas de Software (QA)</h1>
+        </div>
+        <div class="video-title">1. Fundamentos de Arquitectura de Software</div>
+        <div class="container_curso">
+            <div class="video-player">
+            
+                <video id="videoPlayer" controls autoplay controlsList="nodownload" disablePictureInPicture
+                    poster="https://images-codigofacilito.s3.us-west-1.amazonaws.com/images/thumb_default.jpg">
+                    <source
+                        src="https://files.catbox.moe/v0inf1.mp4">
+                    Your browser does not support the video tag.
+                </video>
+
+            <!-- Custom Video Controls -->
+            <!-- <div class="controls">
+                <button id="playPauseBtn"><i class="fas fa-play"></i></button> 
+                <input id="volumeControl" type="range" min="0" max="1" step="0.1">
+                <span id="currentTime">00:00</span> / <span id="duration">00:00</span>
+                <button id="volumeBtn"><i class="fas fa-volume-up"></i></button>
+                <button id="nextBtn"><i class="fas fa-forward"></i></button>
+            </div>-->
+            </div>
+            <div class="playlist">
+                <ul id="videoList">
+                    <li data-video="https://files.catbox.moe/v0inf1.mp4" class="active">1. Bienvenida al Curso</li>
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/8e3e8215-491d-4dfe-a319-15aa06375d71/2_%20Anatomia%20del%20Tester%20-%20Curso%20de%20Introduccion%20a%20las%20Pruebas%20de%20Sof_BFXFXR.mp4">2. Etapas del proceso de desarrollo de software.</li>
+                    <li data-video="https://files.catbox.moe/zpqvek.mp4">3. Definicion y Objetivos de las Pruebas de Software</li>
+                    <li data-video="https://files.catbox.moe/p3t4zn.mp4">4. Caso de Estudio - El Fallo del Mariner 1 </li>
+                    <li data-video="https://files.catbox.moe/q38qlt.mp4">5. Necesidad de Calidad</li>
+                    <li data-video="https://files.catbox.moe/jyiw1w.mp4">6. QA vs Testing</li>
+                    <li data-video="https://files.catbox.moe/v8ernj.mp4">7. Errores Fallos y Defectos</li>
+                    <li data-video="https://files.catbox.moe/f3sjkn.mp4">8. Caso de Estudio - Agujero en la Capa de Ozono</li>
+                    <li data-video="https://files.catbox.moe/f9okco.mp4">9. Las Pruebas Denotan la Presencia de Bugs</li>
+                    <li data-video="https://files.catbox.moe/u01ufn.mp4">10. Las Pruebas Exhaustivas son Imposibles</li>
+                    <li data-video="https://files.catbox.moe/nx3hh7.mp4">11. Las Pruebas Tempranas Ahorran Mucho Tiempo y Dinero</li>
+                    <li data-video="https://files.catbox.moe/6s9a5r.mp4">12. Los Errores Tienden a Agruparse</li>
+                    <li data-video="https://files.catbox.moe/jn82ie.mp4">13. La Paradoja del Pesticida</li>
+                    <li data-video="https://files.catbox.moe/3jqxhg.mp4">14. Las Pruebas Dependen del Contexto</li>
+                    <li data-video="https://files.catbox.moe/2180tx.mp4">15. La Ausencia de Errores es una Falacia</li>
+                    <li data-video="https://files.catbox.moe/3skibq.mp4">16. Caso de Estudio - Therac-25</li>
+                    <li data-video="https://files.catbox.moe/rnc6yq.mp4">17. Contexto como Parte del Proceso Pruebas</li>
+                    <li data-video="https://files.catbox.moe/7ib4uk.mp4">18. Definicion de Tareas y Actividades Pt1</li>
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/8c060f1e-96a2-4cdf-bebb-59f0fa05f03e/19_%20Definicion%20de%20Tareas%20y%20Actividades%20Pt2_SMJQWK.mp4">19. Definicion de Tareas y Actividades Pt2</li>
+                    <li data-video="https://files.catbox.moe/29sg61.mp4">20. Definicion de Tareas y Actividades Pt3</li>
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/8e43d60f-fe18-4e2e-9e97-b083c143d39f/21_%20Caso%20de%20Estudio%20-%20Fallas%20en%20BBVA%20Mexico_WUPMQO.mp4">21. Caso de Estudio - Fallas en BBVA Mexico</li>
+                    <li data-video="https://files.catbox.moe/jdww71.mp4">22. Pensamiento Orientado a Pruebas</li>
+                    <li data-video="https://files.catbox.moe/qotn2l.mp4">23. Prejuicios en las Pruebas</li>
+                    <li data-video="https://files.catbox.moe/odor0j.mp4">24. Siguientes Pasos</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://utp-prd-upload-file-storage.vercel.app/video_player/script.js"></script>
+</body>
+</html>
