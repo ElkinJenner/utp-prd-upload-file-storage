@@ -244,13 +244,17 @@ body.dark-mode .playlist {
 
 /* Media queries */
 @media (max-width: 768px) {
+    .video-title{
+        display: none;
+    }
+    h1{font-size: 26px;}
     .container_curso {
         flex-direction: column;
     }
 
     .video-player,
     .playlist {
-        width: 100%;
+        width: inherit;
         flex: none;
     }
 

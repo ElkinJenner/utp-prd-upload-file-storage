@@ -53,14 +53,14 @@ window.addEventListener('load', function () {
 });
 
 // Deshabilitar el clic derecho en el video
-videoPlayer.addEventListener('contextmenu', function (e) {
+/*videoPlayer.addEventListener('contextmenu', function (e) {
     e.preventDefault();
 });
 
 // Deshabilitar el clic derecho en todo el sitio
 document.addEventListener('contextmenu', function (e) {
     e.preventDefault();
-});
+});*/
 
 // Funcionalidad de modo oscuro/claro
 const themeToggle = document.getElementById('themeToggle');
