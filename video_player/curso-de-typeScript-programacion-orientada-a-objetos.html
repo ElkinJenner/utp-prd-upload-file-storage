@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de TypeScript: Programación Orientada a Objetos y Asincronismo - Platzi </title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="../favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </head>
+</head>
+<body>
+    <button id="themeToggle" class="theme-toggle">
+        <i id="themeIcon" class="fas fa-moon"></i> </button>
+    <section class="container">
+        <div class="title">
+            <img class="img40"
+                src="https://static.platzi.com/media/achievements/piezas-typescript-programacion-orientada-objetos-asincronismo_badge-4012cb86-9ecc-4.png">
+            <h1>Curso de TypeScript: Programación Orientada a Objetos y Asincronismo</h1>
+        </div>
+         <div class="video-title">1. Bienvenida al Curso - Curso profesional de C++</div>
+        <div class="container_curso">
+            <div class="video-player">
+                <video id="videoPlayer" controls autoplay controlsList="nodownload" disablePictureInPicture
+                poster="https://thumbs.cdn.mdstrm.com/thumbs/512e13acaca1ebcd2f000279/thumb_621cbfa60017990824c59dc4_621cbfa60017990824c59dd0_37s.jpg">
+                    <source
+                        src="https://files.catbox.moe/bu0bp7.mp4"
+                        type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+        
+            </div>
+            <div class="playlist">
+                <ul id="videoList">
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/ac7a572a-581b-4137-b1a3-7e1b44a55980/1_%20Ya%20tomaste%20el%20Curso%20de%20TypeScript%20Tipos%20Avanzados%20y%20Funciones_UJLBWL.mp4" class="active">1. Ya tomaste el Curso de TypeScript Tipos Avanzados y Funciones</li>
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/2f253081-85a5-4ec2-bbe6-e43928067cf9/2_%20Class_EGKPWJ.mp4">2. Class</li>
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/f65578b7-8cd0-4a34-8be3-b278088b6e64/3_%20M%C3%A9todos_SZKMAM.mp4">3. Métodos</li>
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/d809c184-bd96-4b41-81a8-142dd45c1a1c/4_%20Acceso%20p%C3%BAblico_KQHVUC.mp4">4. Acceso público</li>
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/ea764b70-82c3-4e7b-947d-a39128a3741a/5_%20Acceso%20privado_OEUMZU.mp4">5. Acceso privado</li>
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/2ce9c43d-ca48-410a-96a6-6c9bb88e2c8f/6_%20Constructor_DZJIWH.mp4">6. Constructor</li>
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/a740fe38-0583-4d8b-af79-fdb3260f1747/7_%20Getters_LSPAED.mp4">7. Getters</li>
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/727066d5-601f-465b-a01b-17e29b245eff/8_%20Setters_WEJQEA.mp4">8. Setters</li>
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/95e40862-36c4-4179-b7c9-3dea01532aa8/9_%20Herencia_VXEJEN.mp4">9. Herencia</li>
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/f769a441-4d21-4e59-9441-804ac479e6f3/10_%20Acceso%20protegido_RGNBSM.mp4">10. Acceso protegido</li>
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/13d69e6a-4f0e-457a-9d52-cefb9b397e06/11_%20Static_GTRVXG.mp4">11. Static</li>
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/c1f221f1-d5b9-497a-8874-d086f4070fd7/12_%20Interfaces_FVTRVP.mp4">12. Interfaces</li>
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/1470c4ec-4132-4cca-a1a0-efe58f1a270a/13_%20Clases%20abstractas_ZHXEDD.mp4">13. Clases abstractas</li>
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/ec65eaa7-7141-4fce-99f8-74ec2653dd6e/14_%20Singleton%20constructor%20privado_BVFQLS.mp4">14. Singleton constructor privado</li>
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/a93f9e28-5f0d-4b99-aedc-174afc134489/15_%20Promesas_OKGNNI.mp4">15. Promesas</li>
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/057e7b06-419f-4a4e-a696-937157196142/16_%20Tipando%20respuestas%20HTTP_DJMXQE.mp4">16. Tipando respuestas HTTP</li>
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/f9bee4c5-5f89-4a20-b929-992d9e575be2/17_%20Proyecto%20migraci%C3%B3n%20de%20funciones%20a%20clases_MWFFAC.mp4">17. Proyecto migración de funciones a clases</li>
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/43129925-b94b-4656-b29b-4a83c7990a98/18_%20Consumiendo%20ProductMemoryService_KDJYYT.mp4">18. Consumiendo ProductMemoryService</li>
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/63eff30c-d8f1-4c80-8975-3548cb96040d/19_%20ProductHttpService_KQBKRP.mp4">19. ProductHttpService</li>
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/233c0103-9511-4caa-baa3-a1951994c3d7/20_%20Consumiendo%20ProductHttpService_BXTPDD.mp4">20. Consumiendo ProductHttpService</li>
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/44d3421f-985a-40f8-b05f-e677e05ebc27/21_%20Generics_RJICWK.mp4">21. Generics</li>
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/00be15b0-9f4a-4fb0-b2b6-55eeb1d0df23/22_%20Generics%20en%20clases_CNHCGO.mp4">22. Generics en clases</li>
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/43197316-c979-434f-9580-1a02f5b7f3aa/23_%20Generics%20en%20m%C3%A9todos_LLRHIH.mp4">23. Generics en métodos</li>
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/054ae7a3-0cf2-47fe-9db5-9e36d87cbfc5/24_%20Decoradores_FLMMOD.mp4">24. Decoradores</li>
+                    <li data-video="https://utp-prd-upload-file-storage.s3.amazonaws.com/pao/content/7234d114-8e87-493a-829b-cb95869b7605/25_%20Quieres%20m%C3%A1s%20cursos%20de%20TypeScript_FRFCDX.mp4">25. Quieres más cursos de TypeScript</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
